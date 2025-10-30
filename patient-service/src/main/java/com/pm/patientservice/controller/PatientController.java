@@ -33,7 +33,9 @@ public class PatientController {
 
     @PostMapping
     @Operation(summary = "Create a new Patient")
-    public ResponseEntity<PatientResponseDTO> createPatient(@Validated({Default.class, CreatePatientValidatonGroup.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
+    public ResponseEntity<PatientResponseDTO> createPatient(@Validated({Default.class,
+            CreatePatientValidatonGroup.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
+
         PatientResponseDTO patientResponseDTO = patientService.createPatient(patientRequestDTO);
 
         return ResponseEntity.ok().body(patientResponseDTO);
@@ -41,7 +43,8 @@ public class PatientController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Update a Patient")
-    public ResponseEntity<PatientResponseDTO> updatePatient(@PathVariable UUID id, @Validated({Default.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
+    public ResponseEntity<PatientResponseDTO> updatePatient(@PathVariable UUID id, @Validated({Default.class})
+    @RequestBody PatientRequestDTO patientRequestDTO) {
 
         PatientResponseDTO patientResponseDTO = patientService.updatePatient(id, patientRequestDTO);
 

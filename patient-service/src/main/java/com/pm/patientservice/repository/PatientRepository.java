@@ -8,6 +8,7 @@ import java.util.UUID;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, UUID>{
+    // Used while updating the Patient Data
     boolean existsByEmail(String email);
     boolean existsByEmailAndIdNot(String email,UUID id);
 }
