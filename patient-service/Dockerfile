@@ -10,7 +10,7 @@ COPY src ./src
 
 RUN mvn clean package
 
-FROM openjdk:21-jdk AS runner
+FROM mcr.microsoft.com/openjdk/jdk:21-ubuntu AS runner
 
 WORKDIR /app
 
